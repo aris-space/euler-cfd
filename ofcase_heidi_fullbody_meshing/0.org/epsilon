@@ -1,0 +1,56 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      epsilon;            // EPSILON = Turbulent Dissipation Rate recalculate
+				    // for each new case.   e=Cu*((k^(3/2))/l)   
+				    // Cu=Turbulent Constant=0.09
+				    // k=Turbulent Kinetic Energy     l=Turbulent Length Scale
+				    // l can be estimated.  l=0.038*dh   dh=pipe diameter
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -3 0 0 0 0];
+
+internalField   uniform 2.67;           // was 0.000765
+
+boundaryField
+{
+    visc_main
+    {
+        type            epsilonWallFunction; 	// think this is correct type BC
+        value           uniform 2.67;             //check this value
+    }
+     visc_refine_1
+    {
+        type            epsilonWallFunction;	// think this is correct type BC
+        value           uniform 2.67;		//check this value
+    }
+     visc_refine_2
+    {
+        type            epsilonWallFunction;	// think this is correct type BC
+        value           uniform 2.67;		//check this value
+    }
+    inlet
+    {
+        type            fixedValue;		// think this is correct type BC
+	value           uniform 2.67;		//check this value
+        
+    }
+    outlet
+    {
+        type            zeroGradient;		// think this is correct type BC
+    }
+}
+
+
+// ************************************************************************* //

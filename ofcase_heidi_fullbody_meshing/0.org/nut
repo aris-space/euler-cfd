@@ -1,0 +1,52 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      nut;              // This is "Turbulent Viscosity"
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    visc_main
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    visc_refine_1
+    {
+      type              nutkWallFunction;
+        value           uniform 0;
+    }
+    visc_refine_2
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    inlet
+    {
+        type            calculated;	// This is a guess
+        value		uniform 0;
+    }
+    outlet
+    {
+        type            calculated; 	// This is a guess
+	value		uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

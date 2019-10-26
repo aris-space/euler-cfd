@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      nuTilda;        // nuTilda is the "Kinematic Turbulent Viscosity" 
+				// This is not needed for k-EPSILON model, only K-Omega
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    visc_main      
+    {
+        type            zeroGradient;
+    }
+    visc_refine_1      
+    {
+        type            zeroGradient;
+    }
+    visc_refine_2     
+    {
+        type            zeroGradient;
+    }
+    inlet      
+    {
+        type            fixedValue;         
+	value		uniform 0;
+    }	
+    outlet    
+    {
+        type            zeroGradient;         
+    }
+}
+
+// ************************************************************************* //
