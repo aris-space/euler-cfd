@@ -20,7 +20,7 @@ internalField   uniform 1000;
 
 boundaryField
 {
-    defaultFaces
+    "(Default_Boundary_Region|rocket)"
     {
         type            zeroGradient;
     }
@@ -37,44 +37,6 @@ boundaryField
         //type            zeroGradient;
         value           uniform 1000;
         inletValue      uniform 1000;
-    }
-
-    sides
-    {
-        type            inletOutlet;
-        //type            zeroGradient;
-        value           uniform 1000;
-        inletValue      uniform 1000;
-    }
-
-    rocket_boattail
-    {
-        type            zeroGradient;
-    }
-
-    rocket_body
-    {
-        type            zeroGradient;
-    }
-
-    rocket_fin1
-    {
-        type            zeroGradient;
-    }
-
-    rocket_fin2
-    {
-        type            zeroGradient;
-    }
-
-    rocket_fin3
-    {
-        type            zeroGradient;
-    }
-
-    rocket_nosecone
-    {
-        type            zeroGradient;
     }
 }
 

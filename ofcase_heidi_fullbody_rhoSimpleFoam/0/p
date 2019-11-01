@@ -20,7 +20,7 @@ internalField   uniform 110000;
 
 boundaryField
 {
-    defaultFaces
+    "(Default_Boundary_Region|rocket)"
     {
         type            zeroGradient;
     }
@@ -47,55 +47,6 @@ boundaryField
         //gamma           1.4;
         //psi             psi;
         //pInf            uniform 110000;
-    }
-
-
-
-    sides
-    {
-        type            fixedValue;
-        value           uniform 110000;
-
-        //type            mixed;
-        //refValue        uniform 110000;
-        //refGradient     uniform 0;
-        //valueFraction   uniform 1;
-        //type            transonicOutletPressure;
-        //U               U;
-        //phi             phi;
-        //gamma           1.4;
-        //psi             psi;
-        //pInf            uniform 110000;
-    }
-
-    rocket_boattail
-    {
-        type            zeroGradient;
-    }
-
-    rocket_body
-    {
-        type            zeroGradient;
-    }
-
-    rocket_fin1
-    {
-        type            zeroGradient;
-    }
-
-    rocket_fin2
-    {
-        type            zeroGradient;
-    }
-
-    rocket_fin3
-    {
-        type            zeroGradient;
-    }
-
-    rocket_nosecone
-    {
-        type            zeroGradient;
     }
 }
 

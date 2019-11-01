@@ -1,0 +1,75 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1; // does nothing in this case, 0.1 would shrink it by 10x
+
+vertices   // (x y z)   
+(
+    (-1000 -1000 -1700)       // was 0 0 0
+    (1000 -1000 -1700)     // was 0.2 0 0
+    (1000 1000 -1700)   // was 0.2 0.2 0
+    (-1000 1000 -1700)     // was 0 0.2 0 
+    (-1000 -1000 3300)     // was 0 0 0.2
+    (1000 -1000 3300)   // was 0.2 0 0.2
+    (1000 1000 3300) // was 0.2 0.2 0.2
+    (-1000 1000 3300)   // was 0 0.2 0.2
+);
+
+blocks          
+(
+    //hex (0 1 2 3 4 5 6 7) (50 50 125) simpleGrading (1 1 1)
+    hex (0 1 2 3  4 5 6 7) (10 10 25) simpleGrading (1 1 1)
+);
+
+edges           
+(
+);
+
+patches         //copied from DICAT shm example "M3_mixing elbow1"
+(               
+/*
+    patch maxY 
+    (
+        (3 7 6 2)
+    )
+    patch minX
+    (
+        (0 4 7 3)
+    )
+    patch maxX
+    (
+        (2 6 5 1)
+    )
+    patch minY
+    (
+        (1 5 4 0)
+    )
+*/
+    patch outlet
+    (
+        (0 3 2 1)
+    )
+    patch inlet
+    (
+        (4 5 6 7)
+    )
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //
