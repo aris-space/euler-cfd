@@ -21,7 +21,7 @@ internalField   uniform 200;
 
 boundaryField
 {
-    defaultFaces
+    "(Default_Boundary_Region|rocket)"
     {
         type            epsilonWallFunction;
         Cmu             0.09;
@@ -39,69 +39,6 @@ boundaryField
     {
         type            inletOutlet;
         inletValue      uniform 200;
-        value           uniform 200;
-    }
-
-
-
-    sides
-    {
-        type            inletOutlet;
-        inletValue      uniform 200;
-        value           uniform 200;
-    }
-
-    rocket_boattail
-    {
-        type            epsilonWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
-        value           uniform 200;
-    }
-
-    rocket_body
-    {
-        type            epsilonWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
-        value           uniform 200;
-    }
-
-    rocket_fin1
-    {
-        type            epsilonWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
-        value           uniform 200;
-    }
-
-    rocket_fin2
-    {
-        type            epsilonWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
-        value           uniform 200;
-    }
-
-    rocket_fin3
-    {
-        type            epsilonWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
-        value           uniform 200;
-    }
-
-    rocket_nosecone
-    {
-        type            epsilonWallFunction;
-        Cmu             0.09;
-        kappa           0.41;
-        E               9.8;
         value           uniform 200;
     }
 }

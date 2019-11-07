@@ -38,50 +38,6 @@ boundaryField
         inletValue      uniform 1;
         value           uniform 1;
     }
-
-
-    sides
-    {
-        type            inletOutlet;
-        inletValue      uniform 1;
-        value           uniform 1;
-    }
-
-    rocket_boattail
-    {
-        type            kqRWallFunction;
-        value           uniform 1;
-    }
-
-    rocket_body
-    {
-        type            kqRWallFunction;
-        value           uniform 1;
-    }
-
-    rocket_fin1
-    {
-        type            kqRWallFunction;
-        value           uniform 1;
-    }
-
-    rocket_fin2
-    {
-        type            kqRWallFunction;
-        value           uniform 1;
-    }
-
-    rocket_fin3
-    {
-        type            kqRWallFunction;
-        value           uniform 1;
-    }
-
-    rocket_nosecone
-    {
-        type            kqRWallFunction;
-        value           uniform 1;
-    }
 }
 
 

@@ -21,7 +21,7 @@ internalField   uniform 0;
 
 boundaryField
 {
-    defaultFaces
+    "(Default_Boundary_Region|rocket)"
     {
         type            compressible::alphatWallFunction;
         Prt             0.85;
@@ -35,54 +35,6 @@ boundaryField
     outlet
     {
         type            calculated;
-        value           uniform 0;
-    }
-
-    sides
-    {
-        type            calculated;
-        value           uniform 0;
-    }
-
-    rocket_boattail
-    {
-        type            compressible::alphatWallFunction;
-        Prt             0.85;
-        value           uniform 0;
-    }
-
-    rocket_body
-    {
-        type            compressible::alphatWallFunction;
-        Prt             0.85;
-        value           uniform 0;
-    }
-
-    rocket_fin1
-    {
-        type            compressible::alphatWallFunction;
-        Prt             0.85;
-        value           uniform 0;
-    }
-
-    rocket_fin2
-    {
-        type            compressible::alphatWallFunction;
-        Prt             0.85;
-        value           uniform 0;
-    }
-
-    rocket_fin3
-    {
-        type            compressible::alphatWallFunction;
-        Prt             0.85;
-        value           uniform 0;
-    }
-
-    rocket_nosecone
-    {
-        type            compressible::alphatWallFunction;
-        Prt             0.85;
         value           uniform 0;
     }
 }

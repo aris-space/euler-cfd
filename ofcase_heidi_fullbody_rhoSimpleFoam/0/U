@@ -20,7 +20,7 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
-    defaultFaces
+    "(Default_Boundary_Region|rocket)"
     {
         type            noSlip;
     }
@@ -35,45 +35,6 @@ boundaryField
         type            inletOutlet;
         value           uniform (0 0 0);
         inletValue      uniform (0 0 0);
-    }
-
-
-
-    sides
-    {
-        type            inletOutlet;
-        value           uniform (0 0 0);
-        inletValue      uniform (0 0 0);
-    }
-
-    rocket_boattail
-    {
-        type            noSlip;
-    }
-
-    rocket_body
-    {
-        type            noSlip;
-    }
-
-    rocket_fin1
-    {
-        type            noSlip;
-    }
-
-    rocket_fin2
-    {
-        type            noSlip;
-    }
-
-    rocket_fin3
-    {
-        type            noSlip;
-    }
-
-    rocket_nosecone
-    {
-        type            noSlip;
     }
 }
 
