@@ -16,14 +16,14 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (650 0 0);
+internalField   uniform (700 0 0);
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-        value           uniform (650 0 0);
+        value           uniform (700 0 0);
     }
 
     outlet
@@ -38,9 +38,9 @@ boundaryField
         type            supersonicFreestream;
         pInf            100000;
         TInf            300;
-        UInf            (650 0 0);
+        UInf            (700 0 0);
         gamma           1.28418;
-        value           uniform (650 0 0);
+        value           uniform (700 0 0);
     }
 
     topWall
@@ -48,9 +48,9 @@ boundaryField
         type            supersonicFreestream;
         pInf            100000;
         TInf            300;
-        UInf            (650 0 0);
+        UInf            (700 0 0);
         gamma           1.28418;
-        value           uniform (650 0 0);
+        value           uniform (700 0 0);
     }
 
     prismWall

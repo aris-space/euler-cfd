@@ -17,13 +17,13 @@ FoamFile
 
 application     sonicFoam;
 
-startFrom       startTime;
+startFrom       latestTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         0.0004;
+endTime         0.0065;
 
 deltaT          5e-07;
 
