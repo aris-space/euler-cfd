@@ -32,6 +32,20 @@ boundaryField
         inletValue      uniform 266000;
         value           uniform 266000;
     }
+    
+    sides
+    {
+        type            inletOutlet;
+        inletValue      uniform 266000;
+        value           uniform 266000;
+    }
+    
+    rocket
+    {
+        type            epsilonWallFunction;
+        value           uniform 266000;
+    }
+    /*
     bottomWall
     {
         type            inletOutlet;
@@ -53,6 +67,7 @@ boundaryField
     {
         type            empty;
     }
+    */
 }
 
 

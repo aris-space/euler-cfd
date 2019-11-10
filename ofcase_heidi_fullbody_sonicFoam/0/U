@@ -16,14 +16,16 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (700 0 0);
+baseVelocity	(0 0 -700);
+
+internalField   uniform $baseVelocity;
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-        value           uniform (700 0 0);
+        value           uniform $baseVelocity;
     }
 
     outlet
@@ -32,7 +34,23 @@ boundaryField
         inletValue      uniform (0 0 0);
         value           uniform (0 0 0);
     }
+    
+    sides
+    {
+        type            supersonicFreestream;
+        pInf            100000;
+        TInf            300;
+        UInf            $baseVelocity;
+        gamma           1.28418;
+        value           uniform $baseVelocity;
+    }
+    
+    rocket
+    {
+        type            noSlip;
+    }
 
+/*
     bottomWall
     {
         type            supersonicFreestream;
@@ -62,6 +80,7 @@ boundaryField
     {
         type            empty;
     }
+*/
 }
 
 // ************************************************************************* //

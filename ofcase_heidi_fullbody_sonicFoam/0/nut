@@ -31,6 +31,20 @@ boundaryField
         type            calculated;
         value           uniform 0;
     }
+    
+    sides
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    
+    rocket
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    
+    /*
     bottomWall
     {
         type            calculated;
@@ -50,6 +64,7 @@ boundaryField
     {
         type            empty;
     }
+    */
 }
 
 

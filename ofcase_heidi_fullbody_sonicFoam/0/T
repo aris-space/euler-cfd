@@ -26,13 +26,19 @@ boundaryField
         value           uniform 300;
     }
 
-    outlet
+    "(outlet|sides)"
     {
         type            inletOutlet;
         inletValue      uniform 300;
         value           uniform 300;
     }
 
+    rocket
+    {
+        type            zeroGradient;
+    }
+
+/*
     bottomWall
     {
         type            inletOutlet;
@@ -56,6 +62,7 @@ boundaryField
     {
         type            empty;
     }
+*/
 }
 
 // ************************************************************************* //

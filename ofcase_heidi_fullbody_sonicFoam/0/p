@@ -36,7 +36,18 @@ boundaryField
         lInf            1;
         value           uniform 100000;
     }
+    
+    sides
+    {
+		type			zeroGradient;
+	}
 
+    rocket
+    {
+		type			zeroGradient;
+    }
+
+/*
     bottomWall
     {
         type            zeroGradient;
@@ -56,6 +67,7 @@ boundaryField
     {
         type            empty;
     }
+*/
 }
 
 // ************************************************************************* //

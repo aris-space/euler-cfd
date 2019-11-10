@@ -26,11 +26,26 @@ boundaryField
         type            calculated;
         value           uniform 0;
     }
+    
     outlet
     {
         type            calculated;
         value           uniform 0;
     }
+    
+    sides
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    
+    rocket
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    
+    /*
     bottomWall
     {
         type            calculated;
@@ -50,6 +65,7 @@ boundaryField
     {
         type            empty;
     }
+    */
 }
 
 

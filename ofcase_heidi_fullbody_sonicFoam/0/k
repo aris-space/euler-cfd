@@ -32,6 +32,21 @@ boundaryField
         inletValue      uniform 1000;
         value           uniform 1000;
     }
+    
+    sides
+    {
+        type            inletOutlet;
+        inletValue      uniform 1000;
+        value           uniform 1000;
+    }
+    
+    rocket
+    {
+        type            kqRWallFunction;
+        value           uniform 1000;
+    }
+    
+    /*
     bottomWall
     {
         type            inletOutlet;
@@ -53,6 +68,7 @@ boundaryField
     {
         type            empty;
     }
+    */
 }
 
 
