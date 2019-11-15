@@ -55,7 +55,7 @@ castellatedMeshControls
     {rocket {mode distance; levels ((0.0006 4) (0.002 3) (0.01 2));}} // was ((0.001 4) (0.003 3) (0.01 2))
     //to decide which side of mesh to keep (cells that can "see" this point are kept)
     //locationInMesh (-500 -500 800);
-    locationInMesh (-0.5 -0.5 0.8);
+    locationInMesh (0 0 0.3);
     allowFreeStandingZoneFaces true;
 }
 

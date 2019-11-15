@@ -1,5 +1,5 @@
 
-NPROCS = 8
+NPROCS = 16
 LOGDIR = log
 BUFSIZE = 1000000
 MPI = export MPI_BUFFER_SIZE=$(BUFSIZE) && mpirun
