@@ -21,7 +21,7 @@ startFrom       latestTime;
 
 startTime       0;
 
-stopAt          writeNow;
+stopAt          endTime;
 
 endTime         500;
 
@@ -58,27 +58,44 @@ functions
         //enabled true;
         functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
         patches (rocket);                      // name of patches
+		// Field names
+		// p               p;
+		// U               U;
+		// rho             rho;
+
+		// Reference pressure [Pa]
+		// pRef            0;
         rho     rhoInf;
-        rhoInf 1.0;                              // ref. Density
-        CofR (0.33333 0 0);                      // origin of center of rotation
-        outputControl outputTime;
-        log on;
+        rhoInf 1.15;                              // ref. Density
+        CofR (0 0 0);                      // origin of center of rotation
+        // outputControl outputTime;
+        // log on;
     }
     forceCoeffs
     {
         type forceCoeffs;                        // class
         functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
         patches    (rocket);                   // name of patches
+		
+		CofR       (0 0 0);                // origin of center of rotation
+        pitchAxis  (1 0 0);
+        liftDir    (0 1 0);
+        dragDir    (0 0 1);
+		
+		// Field names
+		// p               p;
+		// U               U;
+		// rho             rho;
+
+		// Reference pressure [Pa]
+		pRef            0;
+		
         rho        rhoInf;
-        rhoInf     1;                            // ref. Density
-        CofR       (0.33333 0 0);                // origin of center of rotation
-        pitchAxis  (0 0 1);
-        liftDir    (-0.1 1   0);
-        dragDir    ( 1   0.1 0);
-        magUInf    1;
-        lRef       1;
-        Aref       1;
-        outputControl outputTime;
+        rhoInf     1.15;                            // ref. Density
+        magUInf    100;
+        lRef       0.152; // 276 cm
+        Aref       0.018; // 152 mm diam
+        // outputControl outputTime;
     }
 }
 

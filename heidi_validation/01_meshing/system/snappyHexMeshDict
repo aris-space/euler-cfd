@@ -22,13 +22,31 @@ addLayers       true;    // decide to add viscous layers ?
 
 geometry // Load in STL files here
 {
-	rocket.stl {type triSurfaceMesh; name rocket;}
+	rocket.stl {
+		type triSurfaceMesh;
+		name rocket;
+	}
+	
+	
+	nosecone_refbox  // User defined region name
+	{
+		type   searchableBox;       // region defined by bounding box
+		min    (-0.3 -0.3  2.0);
+		max    ( 0.3  0.3  2.8);
+	}
+  
+	fins_refbox  // User defined region name
+	{
+		type   searchableBox;       // region defined by bounding box
+		min    (-0.4 -0.4 -0.3);
+		max    ( 0.4  0.4  0.5);
+	}
 };
 
 castellatedMeshControls
 {
     maxLocalCells 2000000;  //max cells per CPU core
-    maxGlobalCells 4000000; //max cells to use before mesh deletion step
+    maxGlobalCells 80000000; //max cells to use before mesh deletion step
     minRefinementCells 10;  //was 0 - zero means no bad cells are allowed during refinement stages
     maxLoadUnbalance 0.10;
     nCellsBetweenLevels 1;  // expansion factor between each high & low refinement zone
@@ -51,8 +69,30 @@ castellatedMeshControls
 
 
     resolveFeatureAngle 30;  // Resolve sharp angles // Default 30
+	
     refinementRegions        // In descending levels of fine-ness
-    {rocket {mode distance; levels ((0.0006 4) (0.002 3) (0.01 2));}} // was ((0.001 4) (0.003 3) (0.01 2))
+    {
+		rocket {
+			mode distance;
+			// levels ((0.0006 5) (0.002 4) (0.01 3) (0.1 2) (0.5 2)); // was ((0.001 4) (0.003 3) (0.01 2))
+			levels ((0.1 3) (0.2 2) (0.5 1));
+		}
+		
+		/*
+		nosecone_refbox
+		{
+			mode inside;
+			levels ((1.0 2));         // refinement level 4 (1.0 entry ignored)
+		}
+		
+		fins_refbox
+		{
+			mode inside;
+			levels ((1.0 2));         // refinement level 4 (1.0 entry ignored)
+		}
+		*/
+	}
+	
     //to decide which side of mesh to keep (cells that can "see" this point are kept)
     //locationInMesh (-500 -500 800);
     locationInMesh (-0.5 -0.5 0.8);
@@ -87,26 +127,18 @@ addLayersControls
     {
 		// Patch names used here are a combination of the patch name given to the STL file
 		//  and the names given to the solids in the STL: STLpatchName_insideSTLName
-		/*
-		rocket_body           {nSurfaceLayers 3;} // was 3
-		rocket_fin1           {nSurfaceLayers 3;} // was 3
-		rocket_fin2           {nSurfaceLayers 3;} // was 3
-		rocket_fin3           {nSurfaceLayers 3;} // was 3
-		rocket_boattail       {nSurfaceLayers 3;} // was 3
-		rocket_nosecone       {nSurfaceLayers 3;} // was 3
-		*/
 		rocket      	  {nSurfaceLayers 3;}
     }
 
     expansionRatio 1.3;
-    finalLayerThickness 0.5; //was 0.00016
+    finalLayerThickness 0.5; // fwas 0.00016
     minThickness 0.01; //was 0.00008
     nGrow 0; // was 1 
 
 
     // Advanced settings
 
-    featureAngle 80; // was 70 //- When not to extrude surface. 0 is flat, 90 is right angle.
+    featureAngle 90; // was 70 //- When not to extrude surface. 0 is flat, 90 is right angle.
     nRelaxIter 3;  //- Max# of snapping relaxation iter. Should stop before upon reaching a correct mesh.
     nSmoothSurfaceNormals 1;  // Number of smoothing iterations of surface normals
     nSmoothNormals 3; // Number of smoothing iterations of interior mesh movement direction

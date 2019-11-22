@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Tinlet			292.15;
+Tinlet			284.188;
 
 dimensions      [0 0 0 1 0 0 0];
 
@@ -22,24 +22,6 @@ internalField   uniform $Tinlet;
 
 boundaryField
 {
-    /*inlet
-    {
-        type            fixedValue;
-        value           uniform $Tinlet;
-    }
-
-    "(outlet|sides)"
-    {
-        type            inletOutlet;
-        inletValue      uniform $Tinlet;
-        value           uniform $Tinlet;
-    }
-
-    rocket
-    {
-        type            zeroGradient;
-    }*/
-    
     "(inlet|outlet|sides)"
     {
         type            inletOutlet;
@@ -51,33 +33,6 @@ boundaryField
     {
         type            zeroGradient;
     }
-
-
-/*
-    bottomWall
-    {
-        type            inletOutlet;
-        inletValue      uniform 300;
-        value           uniform 300;
-    }
-
-    topWall
-    {
-        type            inletOutlet;
-        inletValue      uniform 300;
-        value           uniform 300;
-    }
-
-    prismWall
-    {
-        type            zeroGradient;
-    }
-
-    defaultFaces
-    {
-        type            empty;
-    }
-*/
 }
 
 // ************************************************************************* //
