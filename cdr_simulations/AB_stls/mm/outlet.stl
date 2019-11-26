@@ -1,0 +1,16 @@
+solid outlet
+facet normal 0.000000 0.000000 1.000000
+outer loop
+vertex -400.000000 -400.000000 -400.000000
+vertex 400.000000 -400.000000 -400.000000
+vertex 400.000000 400.000000 -400.000000
+endloop
+endfacet
+facet normal 0.000000 0.000000 1.000000
+outer loop
+vertex -400.000000 -400.000000 -400.000000
+vertex 400.000000 400.000000 -400.000000
+vertex -400.000000 400.000000 -400.000000
+endloop
+endfacet
+endsolid Exported from Blender-2.81 (sub 16)
