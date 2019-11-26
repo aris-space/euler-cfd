@@ -17,6 +17,7 @@ Case            | Mesh resolution | U | Ma |
 | 10_validation |   60x60x150 | 80 m/s | 0.237 |
 | 11_validation |   90x90x225 | 80 m/s | 0.237 |
 | 12_validation | 120x120x300 | 80 m/s | 0.237 |
+| 13_validation | 20x20x50 | 80 m/s | 0.237 |
 
 
 ## Thermophysical properties
@@ -53,6 +54,7 @@ Case            | Source | Expected drag | Result | Error | Cd
 | 10_validation | HEIDI windtunnel | 26 N |  |
 | 11_validation | HEIDI windtunnel | 26 N |  |
 | 12_validation | HEIDI windtunnel | 26 N |  |
+| 13_validation | HEIDI windtunnel | 26 N |  |
 
 ## References
 
