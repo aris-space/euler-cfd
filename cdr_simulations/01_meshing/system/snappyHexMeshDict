@@ -99,12 +99,7 @@ addLayersControls
     {
     	// Patch names used here are a combination of the patch name given to the STL file
     	//  and the names given to the solids in the STL: STLpatchName_insideSTLName
-    	rocket_body           {nSurfaceLayers 3;} // was 3
-    	rocket_fin1           {nSurfaceLayers 3;} // was 3
-    	rocket_fin2           {nSurfaceLayers 3;} // was 3
-    	rocket_fin3           {nSurfaceLayers 3;} // was 3
-    	rocket_boattail       {nSurfaceLayers 3;} // was 3
-    	rocket_nosecone       {nSurfaceLayers 3;} // was 3
+    	body           {nSurfaceLayers 3;} // was 3
     }
 
     expansionRatio 1.3;
