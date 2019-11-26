@@ -21,10 +21,20 @@ Case            | Mesh resolution | U | Ma |
 
 ## Thermophysical properties
 
+### 05-08_validation
 U.S. standard atmosphere model at 2000ft (609.6m)
 * Molecular weight: 28.96
 * T = 284.188 K
 * p = 94212.9 Pa
+* Cp = 1005 J kg^-1 K^-1 (specific heat)
+* As = 1.458e-6 (Sutherland coefficient)
+* Ts = 110.4 (Sutherland temperature)
+
+### 09-12_validation
+Based on TELL windtunnel measurements
+* Molecular weight: 28.96
+* T = 20°C (292.15 K)
+* p = 95540 Pa
 * Cp = 1005 J kg^-1 K^-1 (specific heat)
 * As = 1.458e-6 (Sutherland coefficient)
 * Ts = 110.4 (Sutherland temperature)
