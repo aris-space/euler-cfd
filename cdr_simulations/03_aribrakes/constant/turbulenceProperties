@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.2.0                                 |
+|  \\    /   O peration     | Version:  4.x                                   |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -10,31 +10,22 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "system";
-    object      decomposeParDict;
+    location    "constant";
+    object      turbulenceProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-numberOfSubdomains 16; // # of CPU cores
+simulationType  RAS;
+//simulationType  laminar;
 
-method          simple;
-
-simpleCoeffs
+RAS
 {
-    n               ( 4 2 2 ); // needs to multiply to = # cores
-    delta           0.001;
-}
+    // RASModel        kEpsilon;
+    RASModel        kOmegaSST;
 
-hierarchicalCoeffs
-{
-    n               ( 1 1 1 );
-    delta           0.001;
-    order           xyz;
-}
+    turbulence      on;
 
-manualCoeffs
-{
-    dataFile        "cellDecomposition";
+    printCoeffs     on;
 }
 
 
