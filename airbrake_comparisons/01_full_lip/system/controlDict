@@ -23,13 +23,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         5000;
+endTime         5000000;
 
 deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   100;
+writeInterval   500;
 
 purgeWrite      0;
 
@@ -63,41 +63,46 @@ functions
         );
 
         rho     rhoInf;
-        rhoInf 1.15;                              // ref. Density
+        rhoInf 0.56;                              // ref. Density
         CofR (0 0 0);                      // origin of center of rotation
+        writeControl	timeStep;
+        writeInterval	100;
         // outputControl outputTime;
         // log on;
     }
-    forces_ab_4
+    forces_ab_1
     {
         type forces;                             // class
         //enabled true;
         functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
         patches                                  // name of patches
         (
-            airbrakes_airbrake_4
+            airbrakes_ab_1
         );
 
         rho     rhoInf;
-        rhoInf 1.15;                              // ref. Density
+        rhoInf 0.56;                              // ref. Density
         CofR (0 0 0);                      // origin of center of rotation
+        writeControl	timeStep;
+        writeInterval	100;
         // outputControl outputTime;
         // log on;
     }
-    forces_ab_12
+    forces_ab_2
     {
         type forces;                             // class
         //enabled true;
         functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
         patches                                  // name of patches
         (
-            airbrakes_airbrake_1
-            airbrakes_airbrake_2
+            airbrakes_ab_2
         );
 
         rho     rhoInf;
-        rhoInf 1.15;                              // ref. Density
+        rhoInf 0.56;                              // ref. Density
         CofR (0 0 0);                      // origin of center of rotation
+        writeControl	timeStep;
+        writeInterval	100;
         // outputControl outputTime;
         // log on;
     }
