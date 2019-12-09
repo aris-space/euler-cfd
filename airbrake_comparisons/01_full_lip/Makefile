@@ -15,6 +15,7 @@ mesh:
 	mkdir -p $(LOGDIR)
 	blockMesh 2>&1 | tee $(LOGDIR)/blockMesh.log
 	surfaceFeatureExtract 2>&1 | tee $(LOGDIR)/surfaceFeatureExtract.log
+	createPatch -overwrite 2>&1 | tee $(LOGDIR)/createPatch.log
 	snappyHexMesh -overwrite 2>&1 | tee $(LOGDIR)/snappyHexMesh.log
 
 solve:
