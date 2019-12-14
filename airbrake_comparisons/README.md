@@ -13,3 +13,22 @@
 * As = 1.458e-6 (Sutherland coefficient)
 * Ts = 110.4 (Sutherland temperature)
 * (rho = 0.557192 km/m^3)
+
+## Intermediate results
+
+### 01_full_lip
+
+Model with raised edge all around
+U = 225 m/s
+
+Pressure forces [N] at iteration 271800 (still not full convergence):
+* Airbrake 1: (-8 10 -153)
+* Airbrake 2: (9 9 -174)
+
+### 02_side_lips
+
+None so far.
+
+## Final results
+
+None so far.
