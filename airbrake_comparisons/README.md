@@ -18,16 +18,21 @@
 
 ### 01_full_lip
 
-Model with raised edge all around
-U = 225 m/s
+Model with raised edge all around.
+
+#### U = 225 m/s
 
 Pressure forces [N] at iteration 271800 (still not full convergence):
 * Airbrake 1: (-8 10 -153)
 * Airbrake 2: (9 9 -174)
 
+#### U = 250m/s
+Currently running. Have been experiencing convergence issues in past days.
+
 ### 02_side_lips
 
-None so far.
+None so far. Currently running with U = 15m/s.
+
 
 ## Final results
 
