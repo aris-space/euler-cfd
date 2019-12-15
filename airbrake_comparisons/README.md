@@ -27,7 +27,24 @@ Pressure forces [N] at iteration 271800 (still not full convergence):
 * Airbrake 2: (9 9 -174)
 
 #### U = 250m/s
-Currently running. Have been experiencing convergence issues in past days.
+Convergence issues due to oscillatory mode of the solver. Reporting average and min/max of oscillations:
+
+| ab_1 | Min [N] | Avg [N] | Max [N] | Error margin +-%
+|--|--|--|--|--|
+| Fx | -17.420 | -15.772 | -12.795 | 18.878
+| Fy | 10.815 | 14.159 | 15.92 | 12.499
+| Fz | -194.10 | -191.84 | -189.27 | 1.3394
+
+
+| ab_2 | Min [N] | Avg [N] | Max [N] | Error margin +-%
+|--|--|--|--|--|
+| Fx | 12.634 | 13.857 | 15.198 | 9.6815
+| Fy | 13.859 | 15.121 | 16.267 | 7.5770
+| Fz | -218.70 | -216.55 | -213.79 | 1.2717
+
+`ab_1` is the lower airbrake (closest to the motor), `ab_2` is the upper one.
+
+**Important:** these are min/max values of the solver oscillations at 250 m/s, **not** of the overall flight.
 
 ### 02_side_lips
 
@@ -36,4 +53,4 @@ None so far. Currently running with U = 15m/s.
 
 ## Final results
 
-None so far.
+None so far. I am working on a way to combat solver oscillations. It will enail manually detecting the beginning of oscillations and reducing the relaxation factors in the solver to make it proceed more slowly.
