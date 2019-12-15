@@ -45,6 +45,7 @@ Convhttps://github.com/aris-space/aris-euler-cfd/tree/master/airbrake_comparison
 `ab_1` is the lower airbrake (closest to the motor), `ab_2` is the upper one.
 
 **Important:** these are min/max values of the solver oscillations at 250 m/s, **not** of the overall flight.
+
 **Even more important:** this error margin is over the solver oscillations for the mesh quality used. It does **not** guarantee quality of the actual value in physical terms. That requires mesh refinement studies and experimental validation.
 
 ### 02_side_lips
