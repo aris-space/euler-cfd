@@ -50,7 +50,7 @@ Convhttps://github.com/aris-space/aris-euler-cfd/tree/master/airbrake_comparison
 
 ### 02_side_lips
 
-None so far. Currently running with U = 15m/s.
+None so far. Currently running with U = 250m/s.
 
 
 ## Final results
