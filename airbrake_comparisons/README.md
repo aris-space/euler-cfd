@@ -1,5 +1,20 @@
 # Airbrake design variants - comparison
 
+<!-- vim-markdown-toc GFM -->
+
+* [Cases](#cases)
+* [Thermophysical properties](#thermophysical-properties)
+* [Intermediate results](#intermediate-results)
+    * [01_full_lip](#01_full_lip)
+        * [U = 225m/s](#u--225ms)
+        * [U = 250m/s](#u--250ms)
+    * [02_side_lips](#02_side_lips)
+* [Final results](#final-results)
+
+<!-- vim-markdown-toc -->
+
+## Cases
+
 * Lip all around (`01_full_lip`)
 * Lip only on sides (`02_side_lips`)
 
@@ -20,14 +35,14 @@
 
 Model with raised edge all around.
 
-#### U = 225 m/s
+#### U = 225m/s
 
 Pressure forces [N] at iteration 271800 (still not full convergence):
 * Airbrake 1: (-8 10 -153)
 * Airbrake 2: (9 9 -174)
 
 #### U = 250m/s
-Convhttps://github.com/aris-space/aris-euler-cfd/tree/master/airbrake_comparisonsergence issues due to oscillatory mode of the solver. Reporting average and min/max of oscillations:
+Convergence issues due to oscillatory mode of the solver. Reporting average and min/max of oscillations:
 
 | ab_1 | Min [N] | Avg [N] | Max [N] | Error margin +-%
 |--|--|--|--|--|
@@ -55,4 +70,4 @@ None so far. Currently running with U = 250m/s.
 
 ## Final results
 
-None so far. I am working on a way to combat solver oscillations. It will enail manually detecting the beginning of oscillations and reducing the relaxation factors in the solver to make it proceed more slowly.
+None so far. I am working on a way to combat solver oscillations. It will likely entail manually detecting the beginning of oscillations and reducing the relaxation factors in the solver to make it proceed more slowly.
