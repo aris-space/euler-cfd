@@ -42,7 +42,7 @@ Pressure forces [N] at iteration 271800 (still not full convergence):
 * Airbrake 2: (9 9 -174)
 
 #### U = 250m/s
-Convergence issues due to oscillatory mode of the solver. Reporting average and min/max of oscillations:
+Convergence issues due to oscillatory mode of the solver. See `01_full_lip/ab1_post.xlsx` and `01_full_lip/ab2_post.xlsx`. Reporting average and min/max of oscillations:
 
 | ab_1 | Min [N] | Avg [N] | Max [N] | Error margin +-%
 |--|--|--|--|--|
