@@ -15,8 +15,8 @@
 
 ## Cases
 
-* Lip all around (`01_full_lip`)
-* Lip only on sides (`02_side_lips`)
+* Raised edge all around (`01_full_lip`)
+* Raised edge only on sides (`02_sidesonly`)
 
 ## Thermophysical properties
 
@@ -44,18 +44,17 @@ Pressure forces [N] at iteration 271800 (still not full convergence):
 #### U = 250m/s
 Convergence issues due to oscillatory mode of the solver. See `01_full_lip/ab1_post.xlsx` and `01_full_lip/ab2_post.xlsx`. Reporting average and min/max of oscillations:
 
-| ab_1 | Min [N] | Avg [N] | Max [N] | Error margin +-%
-|--|--|--|--|--|
-| Fx | -17.420 | -15.772 | -12.795 | 18.878
-| Fy | 10.815 | 14.159 | 15.92 | 12.499
-| Fz | -194.10 | -191.84 | -189.27 | 1.3394
-
-
 | ab_2 | Min [N] | Avg [N] | Max [N] | Error margin +-%
 |--|--|--|--|--|
 | Fx | 12.634 | 13.857 | 15.198 | 9.6815
 | Fy | 13.859 | 15.121 | 16.267 | 7.5770
 | Fz | -218.70 | -216.55 | -213.79 | 1.2717
+
+| ab_1 | Min [N] | Avg [N] | Max [N] | Error margin +-%
+|--|--|--|--|--|
+| Fx | -17.420 | -15.772 | -12.795 | 18.878
+| Fy | 10.815 | 14.159 | 15.92 | 12.499
+| Fz | -194.10 | -191.84 | -189.27 | 1.3394
 
 `ab_1` is the lower airbrake (closest to the motor), `ab_2` is the upper one.
 
@@ -63,10 +62,23 @@ Convergence issues due to oscillatory mode of the solver. See `01_full_lip/ab1_p
 
 **Even more important:** this error margin is over the solver oscillations for the mesh quality used. It does **not** guarantee quality of the actual value in physical terms. That requires mesh refinement studies and experimental validation.
 
-### 02_side_lips
+### 02_sidesonly
 
-None so far. Currently running with U = 250m/s.
+The solver crashed after 2700 iterations. These results are based on the values for those first iterations, in which the solver already seemed to enter an oscillatory mode. See `01_full_lip/ab1_post.xlsx` and `01_full_lip/ab2_post.xlsx`. Reporting average and min/max of oscillations:
 
+| ab_1 | Min [N] | Avg [N] | Max [N] | Error margin +-%
+|--|--|--|--|--|
+| Fx | -8.6 | -8.1 | -7.6 | 6.8
+| Fy | -7.3 | 6.2 | -5.1 | 18
+| Fz | -226 | -224 | -223 | 0.79
+
+| ab_2 | Min [N] | Avg [N] | Max [N] | Error margin +-%
+|--|--|--|--|--|
+| Fx | 3.7 | 4.3 | 4.7 | 10
+| Fy | -9.4 | -8.13 | -7.0 | 14
+| Fz | -198 | -196 | -194 | 1.0
+
+`ab_2` is the lower airbrake (closest to the motor), `ab_1` is the upper one (yes, it's back to front w.r.t. the other case `01_full_lip` -- sorry for that).
 
 ## Final results
 
