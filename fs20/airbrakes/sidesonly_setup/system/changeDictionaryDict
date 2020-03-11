@@ -22,8 +22,8 @@ U
 	    "(inlet|outlet|sides|freestream)"
 		{
 		type            freestream;
-		freestreamValue uniform (0 0 -250);
-		value           uniform (0 0 -250);
+		freestreamValue uniform (0 0 -15);
+		value           uniform (0 0 -15);
 	    }
 
 	    "(cyc.*)"

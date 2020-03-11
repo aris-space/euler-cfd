@@ -22,6 +22,7 @@ solve:
 	mkdir -p $(LOGDIR)
 	#rm -rf processor*
 	decomposePar -force 2>&1 | tee $(LOGDIR)/decomposePar.log
+	#export MPI_BUFFER_SIZE=1000000 && mpirun -np $(NPROCS) renumberMesh -parallel 2>&1 | tee $(LOGDIR)/renumberMesh.log
 	export MPI_BUFFER_SIZE=1000000 && mpirun -np $(NPROCS) rhoSimpleFoam -parallel 2>&1 | tee $(LOGDIR)/rhoSimpleFoam.log
 	#reconstructPar -latestTime 2>&1 | tee $(LOGDIR)/reconstructPar.log
 	#rm -rf processor*
