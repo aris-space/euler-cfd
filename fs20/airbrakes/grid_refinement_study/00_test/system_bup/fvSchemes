@@ -18,7 +18,7 @@ FoamFile
 // https://develop.openfoam.com/Development/OpenFOAM-plus/blob/master/tutorials/compressible/rhoSimpleFoam/aerofoilNACA0012/system/fvSchemes
 ddtSchemes
 {
-    default         localEuler;
+    default         steadyState;
 }
 
 gradSchemes
@@ -34,17 +34,7 @@ gradSchemes
 divSchemes
 {
     default         none;
-    
-	div(phi,U)          Gauss linearUpwind limited;
-    div(phi,e)          Gauss linearUpwind limited;
-    div(phi,omega)    Gauss linearUpwind limited;
-    div(phi,k)          Gauss linearUpwind limited;
-    div(phi,K)          Gauss linearUpwind limited;
-    div(phiv,p)         Gauss linearUpwind limited;
 
-    div(((rho*nuEff)*dev2(T(grad(U)))))      Gauss linear;
-
-/*
     div(phi,U)      bounded Gauss linearUpwind limited;
 
     turbulence      bounded Gauss upwind;
@@ -61,7 +51,6 @@ divSchemes
     div((phi|interpolate(rho)),p)  bounded Gauss upwind;
 
     div(((rho*nuEff)*dev2(T(grad(U)))))    Gauss linear;
-*/
 }
 
 laplacianSchemes

@@ -23,13 +23,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         10.000;
+endTime         5000;
 
-deltaT          0.1;
+deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   10;
+writeInterval   100;
 
 purgeWrite      0;
 
@@ -68,14 +68,14 @@ functions
         // outputControl outputTime;
         // log on;
     }
-    forces_ab_1
+    forces_ab_4
     {
         type forces;                             // class
         //enabled true;
         functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
         patches                                  // name of patches
         (
-            airbrakes_ab_1
+            airbrakes_airbrake_4
         );
 
         rho     rhoInf;
@@ -84,14 +84,15 @@ functions
         // outputControl outputTime;
         // log on;
     }
-    forces_ab_2
+    forces_ab_12
     {
         type forces;                             // class
         //enabled true;
         functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
         patches                                  // name of patches
         (
-            airbrakes_ab_2
+            airbrakes_airbrake_1
+            airbrakes_airbrake_2
         );
 
         rho     rhoInf;
@@ -100,17 +101,6 @@ functions
         // outputControl outputTime;
         // log on;
     }
-    
-    CourantNo
-	{
-		type        CourantNo;
-		libs        ("libfieldFunctionObjects.so");
-		//outputControl	outputTime;
-		executeControl	timeStep;
-		executeInterval	2;
-		writeControl	writeTime;
-	}
-	
 /*
     forceCoeffs
     {

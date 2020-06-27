@@ -18,7 +18,7 @@ dimensions      [0 1 -1 0 0 0 0];
 
 Uinlet			(0 0 -15);
 
-internalField   uniform $Uinlet;
+internalField   uniform (0 0 0);
 
 boundaryField
 {

@@ -19,12 +19,7 @@ tol		1e-4;
 
 solvers
 {
-    "rho.*"
-    {
-        solver nthn;
-    }
-
-	"p.*"
+	p
     {
         solver          GAMG;
         smoother        GaussSeidel;
@@ -32,7 +27,7 @@ solvers
         relTol          0.01;
     }
 
-    "(U.*|k.*|omega.*|e.*)"
+    "(U|k|omega|e)"
     {
         solver          PBiCGStab;
         preconditioner  DILU;
@@ -41,28 +36,7 @@ solvers
     }
 }
 
-// https://develop.openfoam.com/Development/openfoam/blob/master/tutorials/compressible/rhoPimpleFoam/RAS/squareBendLiq/system/fvSolution
-PIMPLE
-{
-    nCorrectors     3;
-    nNonOrthogonalCorrectors 0;
-    pMinFactor      0.1;
-    pMaxFactor      1.5;
 
-    transonic       no;
-    consistent      no;
-}
-
-relaxationFactors
-{
-    equations
-    {
-        ".*"            1;
-    }
-}
-
-
-/*
 SIMPLE
 {
     residualControl
@@ -95,6 +69,5 @@ relaxationFactors
         "(k|omega)"     0.7;
     }
 }
-*/
 
 // ************************************************************************* //
