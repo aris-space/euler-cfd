@@ -1,0 +1,146 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     rhoSimpleFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         5000000;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval   500;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  7;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+graphFormat     raw;
+
+runTimeModifiable true;
+
+functions
+{
+    #includeFunc MachNo
+    #includeFunc residuals
+    
+    body
+    {
+        type forces;                             // class
+        //enabled true;
+        functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
+        patches                                  // name of patches
+        (
+            body
+        );
+
+        rho     rhoInf;
+        rhoInf 1.15;                              // ref. Density
+        CofR (0 0 0);                      // origin of center of rotation
+	writeControl	timeStep;
+	writeInterval	100;
+        // outputControl outputTime;
+        // log on;
+    }
+    forces_ab_2
+    {
+        type forces;                             // class
+        //enabled true;
+        functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
+        patches                                  // name of patches
+        (
+            airbrakes_ab_2
+        );
+
+        rho     rhoInf;
+        rhoInf 1.15;                              // ref. Density
+        CofR (0 0 0);                      // origin of center of rotation
+	writeControl	timeStep;
+	writeInterval	100;
+        // outputControl outputTime;
+        // log on;
+    }
+    forces_ab_1
+    {
+        type forces;                             // class
+        //enabled true;
+        functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
+        patches                                  // name of patches
+        (
+            airbrakes_ab_1
+        );
+
+        rho     rhoInf;
+        rhoInf 1.15;                              // ref. Density
+        CofR (0 0 0);                      // origin of center of rotation
+	writeControl	timeStep;
+	writeInterval	100;
+        // outputControl outputTime;
+        // log on;
+    }
+/*
+    forceCoeffs
+    {
+        type forceCoeffs;                        // class
+        functionObjectLibs ("libforces.so");     // req. lib.; libforces.dylib for mac
+        patches                                  // name of patches
+        (
+            rocket
+            body
+            "airbrakes_.*"
+        );
+		
+		CofR       (0 0 0);                // origin of center of rotation
+        pitchAxis  (1 0 0);
+        liftDir    (0 1 0);
+        dragDir    (0 0 1);
+		
+		// Field names
+		// p               p;
+		// U               U;
+		// rho             rho;
+
+		// Reference pressure [Pa]
+		pRef            0;
+		
+        rho        rhoInf;
+        rhoInf     1.15;                            // ref. Density
+        magUInf    100;
+        lRef       0.152; // 276 cm
+        Aref       0.018; // 152 mm diam
+        // outputControl outputTime;
+    }
+*/
+}
+
+
+
+// ************************************************************************* //

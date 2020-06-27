@@ -1,0 +1,94 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+Uinlet			(0 0 -100);
+
+internalField   uniform $Uinlet;
+
+boundaryField
+{
+	"(inlet|outlet|sides)"
+	{
+        type            freestream;
+        freestreamValue uniform $Uinlet;
+        value           uniform $Uinlet;
+    }
+    
+    rocket
+    {
+        type            noSlip;
+    }
+
+/*
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           uniform (0 0 0);
+    }
+    
+    sides
+    {
+        // type            supersonicFreestream;
+        // pInf            100000;
+        // TInf            300;
+        // UInf            $baseVelocity;
+        // gamma           1.28418;
+        // value           uniform $baseVelocity;
+		type            freestream;
+        freestreamValue uniform $baseVelocity;
+        value           uniform $baseVelocity;
+
+    }
+    */
+
+
+/*
+    bottomWall
+    {
+        type            supersonicFreestream;
+        pInf            100000;
+        TInf            300;
+        UInf            (700 0 0);
+        gamma           1.28418;
+        value           uniform (700 0 0);
+    }
+
+    topWall
+    {
+        type            supersonicFreestream;
+        pInf            100000;
+        TInf            300;
+        UInf            (700 0 0);
+        gamma           1.28418;
+        value           uniform (700 0 0);
+    }
+
+    prismWall
+    {
+        type            noSlip;
+    }
+
+    defaultFaces
+    {
+        type            empty;
+    }
+*/
+}
+
+// ************************************************************************* //
