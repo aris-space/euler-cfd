@@ -13,7 +13,7 @@ mesh:
 
 shm:
 	mkdir -p $(LOGDIR)
-	mpirun -np $(NPROCS) snappyHexMesh -overwrite -parallel 2>&1 | tee $(LOGDIR)/snappyHexMesh.log
+	export MPI_BUFFER_SIZE=10000000 && mpirun -np $(NPROCS) snappyHexMesh -overwrite -parallel 2>&1 | tee $(LOGDIR)/snappyHexMesh.log
 
 check:
 	mkdir -p $(LOGDIR)

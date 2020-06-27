@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Euler.stl
+Euler_rot45.stl
 {
     extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
     extractFromSurfaceCoeffs

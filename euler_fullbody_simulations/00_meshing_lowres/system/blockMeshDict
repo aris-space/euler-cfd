@@ -18,20 +18,21 @@ convertToMeters 1; // does nothing in this case, 0.1 would shrink it by 10x
 
 vertices   // (x y z)   
 (
-    (-1 -1 -4.7)
-    ( 1 -1 -4.7)
+    ( 0  0 -4.7)
+    ( 1  0 -4.7)
     ( 1  1 -4.7)
-    (-1  1 -4.7)
-    (-1 -1    1)
-    ( 1 -1    1)
+    ( 0  1 -4.7)
+    ( 0  0    1)
+    ( 1  0    1)
     ( 1  1    1)
-    (-1  1    1)
+    ( 0  1    1)
 );
 
 blocks          
 (
-    // (100 100 285)
-    hex (0 1 2 3 4 5 6 7) (25 25 71) simpleGrading (1 1 1)
+    // (50 50 285)
+    // (12 12 71)
+    hex (0 1 2 3 4 5 6 7) (12 12 71) simpleGrading (1 1 1)
 );
 
 edges           
@@ -76,11 +77,19 @@ patches
         (0 3 2 1)
     )
 
-    patch sides
+    patch outerSides
     (
         (3 7 6 2)
-        (0 4 7 3)
         (2 6 5 1)
+    )
+
+    patch cyclic0
+    (
+        (0 4 7 3)
+    )
+
+    patch cyclic1
+    (
         (1 5 4 0)
     )
 );

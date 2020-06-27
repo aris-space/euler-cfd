@@ -22,6 +22,9 @@ addLayers       false;    // decide to add viscous layers ?
 
 geometry // Load in STL files here
 {
+    Euler_rot45.stl {type triSurfaceMesh; name rocket;}
+    Nosecone.stl {type triSurfaceMesh; name nosecone;}
+/*
     rocket {
         type    triSurfaceMesh;
         file    "Euler.stl";
@@ -45,6 +48,7 @@ geometry // Load in STL files here
             }
         }
     }
+*/
 };
 
 castellatedMeshControls
@@ -60,7 +64,7 @@ castellatedMeshControls
 
     features // taken from STL from each .eMesh file created by "SurfaceFeatureExtract" command
     (
-        {file "Euler.eMesh"; level 3;} 
+        {file "Euler_rot45.eMesh"; level 3;} 
     );
 
     // Surface based refinement
@@ -68,7 +72,7 @@ castellatedMeshControls
 
     refinementSurfaces // Surface-wise min and max refinement level
     {
-    	body {level (3 5);}
+    	rocket {level (3 6);}
     }  
 
 
@@ -81,15 +85,20 @@ castellatedMeshControls
             mode distance;
             levels ((0.01 3) (0.02 2) (0.04 1));
         }
-        */
         body
         {
             mode distance;
             levels ((0.04 3) (0.08 2) (0.16 1));
         }
+        */
+        rocket
+        {
+            mode distance;
+            levels ((0.1 3) (0.25 2) (0.5 1));
+        }
     }
     //to decide which side of mesh to keep (cells that can "see" this point are kept)
-    locationInMesh (-0.5 -0.5 -4.5);
+    locationInMesh (0.5 0.5 -4.5);
     allowFreeStandingZoneFaces true;
 }
 
@@ -105,9 +114,13 @@ snapControls
     
     // New settings from openfoam 2.2 onwards for SHMesh
     
-    implicitFeatureSnap false; // default is false - detects without doing surfaceFeatureExtract
+    // default is false - detects without doing surfaceFeatureExtract
+    implicitFeatureSnap false; 
+
     explicitFeatureSnap true; // default is true
-    multiRegionFeatureSnap false; // deafault is false - detects features between multiple surfaces
+
+    // default is false - detects features between multiple surfaces
+    multiRegionFeatureSnap false;
 
 }
 
@@ -121,7 +134,7 @@ addLayersControls
     {
     	// Patch names used here are a combination of the patch name given to the STL file
     	//  and the names given to the solids in the STL: STLpatchName_insideSTLName
-    	body           {nSurfaceLayers 3;} // was 3
+    	rocket           {nSurfaceLayers 3;} // was 3
     }
 
     expansionRatio 1.3;
