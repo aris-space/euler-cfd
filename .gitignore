@@ -7,4 +7,6 @@
 **/processor*/*
 **/extendedFeatureEdgeMesh/*
 **/polyMesh*/
+**/postProcessing/*
 *.eMesh
+*.obj

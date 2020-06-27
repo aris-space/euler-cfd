@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      surfaceFeatureExtractDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+Euler.stl
+{
+    extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
+    extractFromSurfaceCoeffs
+    {includedAngle   150;}
+    writeObj                yes;    // Write options
+}
+
+Nosecone.stl
+{
+    extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
+    extractFromSurfaceCoeffs
+    {includedAngle   150;}
+    writeObj                yes;    // Write options
+}
+
+// freestream.stl
+// {
+//     extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
+//     extractFromSurfaceCoeffs
+//     {includedAngle   150;}
+//     writeObj                yes;    // Write options
+// }
+// 
+// inlet.stl
+// {
+//     extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
+//     extractFromSurfaceCoeffs
+//     {includedAngle   150;}
+//     writeObj                yes;    // Write options
+// }
+// 
+// outlet.stl
+// {
+//     extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
+//     extractFromSurfaceCoeffs
+//     {includedAngle   150;}
+//     writeObj                yes;    // Write options
+// }
+// 
+// symmetry_plane.stl
+// {
+//     extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
+//     extractFromSurfaceCoeffs
+//     {includedAngle   150;}
+//     writeObj                yes;    // Write options
+// }
+
+// ************************************************************************* //
