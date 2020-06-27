@@ -1,7 +1,7 @@
-/*--------------------------------*- C++ -*----------------------------------*\
+/*---------------------------------------------------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.2.0                                 |
+|  \\    /   O peration     | Version:  4.0                                   |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -17,56 +17,76 @@ FoamFile
 
 ddtSchemes
 {
-    default         steadyState;
+    default         Euler;
 }
 
 gradSchemes
 {
-    default         Gauss linear;
-    grad(p)         Gauss linear;
-    grad(U)         Gauss linear;
+    //default         Gauss linear;
+    //default         cellMDLimited Gauss linear 1;
+    //default 	     leastSquares;
+    //default 	     cellMDLimited leastSquares 1;
+    //default 	     cellLimited leastSquares 1;
+    //default 	     faceMDLimited leastSquares 1;
+    //default 	     faceLimited leastSquares 1;
+    //default 	     cellMDLimited Gauss linear 1;
+    //default 	     cellLimited<cubic> 1.5 Gauss linear 1;
+    //default 	     faceMDLimited Gauss linear 1;
+    //default 	     faceLimited Gauss linear 1;
+
+    default 	   cellLimited Gauss linear 1;
+
+    grad(p)        cellLimited Gauss linear 0.333;
+    grad(h)	       cellLimited Gauss linear 0.333;
+
+    //grad(rho)	     cellLimited Gauss linear 0.5;
 }
 
 divSchemes
 {
-    default         none;
-    div(phi,U)      bounded Gauss upwind;
-    div(phi,k)      bounded Gauss upwind;
-    div(phi,epsilon) bounded Gauss upwind;
-    div(phi,R)      bounded Gauss upwind;
-    div(R)          Gauss linear;
-    div(phi,nuTilda) bounded Gauss upwind;
-    //div((nuEff*dev(T(grad(U))))) Gauss linear;
-    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    default         Gauss vanLeer;
+    
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+
+    // For postProcess
+    div(grad(rho))  Gauss linear;
+/*
+    //div(phi,U)      Gauss linearUpwind default;
+    //div(phi,U)      Gauss vanLeerV;
+    //div(phi,U)      Gauss MinmodV;
+    //div(phi,U)      Gauss SuperBeeV;
+    //div(phi,U)      Gauss linear;
+    div(phi,U)      Gauss upwind;
+
+    div(phi,K)      Gauss linear;
+    div(phi,h)      Gauss limitedLinear 1;
+    div(phid,p)     Gauss limitedLinear 1;
+
+    //div(phi,K)      Gauss upwind;
+    //div(phi,h)      Gauss upwind;
+    //div(phid,p)     Gauss upwind;
+
+
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+*/
 }
 
 laplacianSchemes
 {
-    default         none;
-    laplacian(nuEff,U) Gauss linear corrected;
-    laplacian((1|A(U)),p) Gauss linear corrected;
-    laplacian(DkEff,k) Gauss linear corrected;
-    laplacian(DepsilonEff,epsilon) Gauss linear corrected;
-    laplacian(DREff,R) Gauss linear corrected;
-    laplacian(DnuTildaEff,nuTilda) Gauss linear corrected;
+    default         Gauss linear limited 1;
 }
 
 interpolationSchemes
 {
     default         linear;
-    interpolate(U)  linear;
+    reconstruct(rho) vanLeer;
+    reconstruct(U)   vanLeerV;
+    reconstruct(T)   vanLeer;
 }
 
 snGradSchemes
 {
-    default         corrected;
+    default         limited 1;
 }
-
-fluxRequired
-{
-    default         no;
-    p               ;
-}
-
 
 // ************************************************************************* //

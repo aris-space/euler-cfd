@@ -1,7 +1,7 @@
-/*--------------------------------*- C++ -*----------------------------------*\
+/*---------------------------------------------------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.2.0                                 |
+|  \\    /   O peration     | Version:  4.0                                   |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -15,27 +15,27 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     simpleFoam;
+application     rhoPimpleFoam;
 
-startFrom       latestTime;
+startFrom       startTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         500;
+endTime         0.007;
 
-deltaT          1;
+deltaT          1e-6;
 
 writeControl    timeStep;
 
-writeInterval   50;
+writeInterval   500;
 
 purgeWrite      0;
 
 writeFormat     ascii;
 
-writePrecision  8; //was 6
+writePrecision  10;
 
 writeCompression off;
 
@@ -45,18 +45,37 @@ timePrecision   6;
 
 runTimeModifiable true;
 
-/*
-functions            // Start listing function objects here
-{
-    wallShearStress  // user-defined name of function object entry
-    {
-        type        wallShearStress;  //the official name of the utility 
-        functionObjectLibs ("libutilityFunctionObjects.so");  //where the utility c++ code is
-         patches     ("visc_main"      
-	 	      "visc_refine_1"  
-              	      "visc_refine_2");   
-    }	
-}
-*/
+adjustTimeStep  no;
+
+maxCo           1;
+
+maxDeltaT       1e-06;
 
 // ************************************************************************* //
+
+functions
+{
+
+///////////////////////////////////////////////////////////////////////////
+
+    minmaxdomain
+    {
+        type fieldMinMax;
+        
+        functionObjectLibs ("libfieldFunctionObjects.so");
+        
+        enabled true;
+        
+        mode component;
+        
+        writeControl timeStep;
+        writeInterval 1;
+        
+        log true;
+        
+        fields (p U T rho);
+    }
+
+///////////////////////////////////////////////////////////////////////////
+
+}
