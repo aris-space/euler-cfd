@@ -21,7 +21,7 @@ dimensions      [0 1 -1 0 0 0 0];
 
 // Mach 3
 //Uinlet          (1041.57 0 0);
-Uinlet          (100 0 0);
+Uinlet          (10 0 0);
 
 internalField   uniform (0 0 0);
 
@@ -29,14 +29,19 @@ boundaryField
 {
     inlet
     {
-        type            fixedValue;
-        value           uniform $Uinlet;
+        type            uniformFixedValue;
+	uniformValue table
+	(
+		(0 (0 0 0))
+		(5 (10 0 0))
+	);
+        //value           uniform $Uinlet;
     }
     outlet
     {
         type            inletOutlet;
-        inletValue      uniform $Uinlet;
-        value           uniform $Uinlet;
+        inletValue      uniform (0 0 0);
+        value           uniform (10 0 0);
     }
     rocket
     {
@@ -44,9 +49,10 @@ boundaryField
     }
     outerSides
     {
-        type            freestream;
-        freestreamValue uniform $Uinlet;
-        value           uniform $Uinlet;
+        //type            freestream;
+        //freestreamValue uniform $Uinlet;
+        //value           uniform $Uinlet;
+	type	slip;
     }
 
     "(cyc_half.*)"

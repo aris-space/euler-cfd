@@ -9,26 +9,34 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
+    class       volVectorField;
     location    "0";
-    object      p;
+    object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0 0 0];
+dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform 100000;
+// Speed of sound is a = 347.19
+
+// Mach 3
+//Uinlet          (1041.57 0 0);
+Uinlet          (50 0 0);
+
+internalField   uniform (0 0 0);
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-        value           $internalField;
+        value           uniform $Uinlet;
     }
     outlet
     {
-        type            zeroGradient;
+        type            inletOutlet;
+        inletValue      uniform $Uinlet;
+        value           uniform $Uinlet;
     }
     rocket
     {
@@ -36,12 +44,9 @@ boundaryField
     }
     outerSides
     {
-        //type            freestream;
-        //freestreamValue uniform 100000;
-        //value           uniform 100000;
-	//type	fixedValue;
-	//value	uniform 100000;
-	type	zeroGradient;
+        type            freestream;
+        freestreamValue uniform $Uinlet;
+        value           uniform $Uinlet;
     }
 
     "(cyc_half.*)"
