@@ -38,9 +38,11 @@ boundaryField
     }
     outerSides
     {
-        type            inletOutlet;
-        inletValue      uniform 300;
-        value           $inletValue;
+        //type            inletOutlet;
+        //inletValue      uniform 300;
+        //value           $inletValue;
+	type	fixedValue;
+	value	uniform 300;
     }
 
     "(cyc_half.*)"

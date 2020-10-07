@@ -3,7 +3,8 @@ ifndef np
 endif
 
 LOGDIR = log
-MPIRUN = export MPI_BUFFER_SIZE=10000000 && mpirun --oversubscribe -np $(np)
+MPIRUN = export MPI_BUFFER_SIZE=10000000 && mpirun -np $(np) 
+# --oversubscribe 
 
 mesh:
 	mkdir -p $(LOGDIR)
@@ -42,5 +43,5 @@ clean:
 	rm -rf constant/polyMesh
 	rm -rf constant/triSurface/*.eMesh
 	rm -rf *.obj
-	rm -rf 0 0.* 1.* 2.*
+	rm -rf 0 0.* 1.* 2.* 3.* 4.* 5.*
 	cp -r 0_org 0
