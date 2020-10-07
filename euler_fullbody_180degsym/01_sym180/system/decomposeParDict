@@ -15,13 +15,13 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-numberOfSubdomains 48; // # of CPU cores
+numberOfSubdomains 16; // # of CPU cores
 
 method          simple;
 
 simpleCoeffs
 {
-    n               ( 2 2 12 ); // needs to multiply to = # cores
+    n               ( 1 1 16 ); // needs to multiply to = # cores
     delta           0.001;
 }
 
