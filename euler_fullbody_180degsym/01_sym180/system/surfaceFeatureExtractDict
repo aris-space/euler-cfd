@@ -14,7 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Euler_rot45.stl
+euler_rot45.stl
+//euler.stl
 {
     extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
     extractFromSurfaceCoeffs
@@ -22,7 +23,8 @@ Euler_rot45.stl
     writeObj                yes;    // Write options
 }
 
-Nosecone.stl
+//airbrakes.stl
+airbrakes_rot45.stl
 {
     extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
     extractFromSurfaceCoeffs

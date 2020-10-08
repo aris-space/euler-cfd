@@ -22,8 +22,10 @@ addLayers       false;    // decide to add viscous layers ?
 
 geometry // Load in STL files here
 {
-    Euler_rot45.stl {type triSurfaceMesh; name rocket;}
-    Nosecone.stl {type triSurfaceMesh; name nosecone;}
+    //euler.stl {type triSurfaceMesh; name rocket;}
+    //airbrakes.stl {type triSurfaceMesh; name airbrakes;}
+    euler_rot45.stl {type triSurfaceMesh; name rocket;}
+    airbrakes_rot45.stl {type triSurfaceMesh; name airbrakes;}
 /*
     rocket {
         type    triSurfaceMesh;
@@ -64,7 +66,10 @@ castellatedMeshControls
 
     features // taken from STL from each .eMesh file created by "SurfaceFeatureExtract" command
     (
-        {file "Euler_rot45.eMesh"; level 3;} 
+        //{file "euler.eMesh"; level 3;} 
+        //{file "airbrakes.eMesh"; level 3;} 
+        {file "euler_rot45.eMesh"; level 3;} 
+        {file "airbrakes_rot45.eMesh"; level 3;} 
     );
 
     // Surface based refinement
@@ -73,6 +78,7 @@ castellatedMeshControls
     refinementSurfaces // Surface-wise min and max refinement level
     {
     	rocket {level (3 4);}
+    	airbrakes {level (4 5);}
     }  
 
 
@@ -95,6 +101,11 @@ castellatedMeshControls
         {
             mode distance;
             levels ((0.1 2) (0.25 1) (0.5 0));
+        }
+        airbrakes
+        {
+            mode distance;
+            levels ((0.1 3) (0.25 2) (0.5 1));
         }
     }
     //to decide which side of mesh to keep (cells that can "see" this point are kept)

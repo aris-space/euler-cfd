@@ -17,7 +17,7 @@ FoamFile
 
 dimensions      [1 -1 -2 0 0 0 0];
 
-internalField   uniform 100000;
+internalField   uniform 38299.7;
 
 boundaryField
 {
@@ -30,15 +30,15 @@ boundaryField
     {
         type            zeroGradient;
     }
-    rocket
+    "(rocket|airbrakes)"
     {
         type            slip;
     }
     outerSides
     {
         type            freestream;
-        freestreamValue uniform 100000;
-        value           uniform 100000;
+        freestreamValue $internalField;
+        value           $internalField;
 	//type	fixedValue;
 	//value	uniform 100000;
 	//type	zeroGradient;

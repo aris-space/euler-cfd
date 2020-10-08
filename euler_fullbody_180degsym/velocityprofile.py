@@ -3,8 +3,9 @@
 # Script to generate OpenFOAM table used for varying inlet velocity
 
 # Min and max velocity in m/s
+# Speed of sound a = 310.213 m/s
 minU = 0
-maxU = 420
+maxU = 372.2556 # Ma = 1.2
 
 # Number of steps to perform
 nSteps = 10

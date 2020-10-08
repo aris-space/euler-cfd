@@ -17,7 +17,7 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 300;
+internalField   uniform 239.457;
 
 boundaryField
 {
@@ -32,7 +32,7 @@ boundaryField
         inletValue      $internalField;
         value           $internalField;
     }
-    rocket
+    "(rocket|airbrakes)"
     {
         type            slip;
     }
