@@ -3,7 +3,7 @@ ifndef np
 endif
 
 LOGDIR = log
-MPIRUN = export MPI_BUFFER_SIZE=10000000 && mpirun -np $(np) 
+MPIRUN = export MPI_BUFFER_SIZE=10000000 && mpirun --oversubscribe -np $(np) 
 # --oversubscribe 
 
 mesh:
