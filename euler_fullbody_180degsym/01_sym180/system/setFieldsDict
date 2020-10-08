@@ -29,7 +29,7 @@ regions
         box (-1 0.5 -4.7) (1 1 1);
         fieldValues
         (
-            volVectorFieldValue U (10 0 0)
+            volVectorFieldValue U (0 0 -10)
         );
     }
 );

@@ -3,7 +3,7 @@ ifndef np
 endif
 
 LOGDIR = log
-MPIRUN = export MPI_BUFFER_SIZE=10000000 && mpirun -oversubscribe -np $(np) 
+MPIRUN = export MPI_BUFFER_SIZE=10000000 && mpirun -np $(np) 
 # --oversubscribe 
 
 mesh:
@@ -33,7 +33,7 @@ solve:
 	rm -rf 0
 	cp -r 0_org 0
 	mkdir -p $(LOGDIR)
-	setFields
+	#setFields
 	make decompose
 	$(MPIRUN) rhoPimpleFoam -parallel 2>&1 | tee $(LOGDIR)/rhoPimpleFoam.log
 	reconstructPar -constant 2>&1 | tee $(LOGDIR)/reconstructPar.log

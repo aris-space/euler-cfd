@@ -36,12 +36,12 @@ boundaryField
     }
     outerSides
     {
-        //type            freestream;
-        //freestreamValue uniform 100000;
-        //value           uniform 100000;
+        type            freestream;
+        freestreamValue uniform 100000;
+        value           uniform 100000;
 	//type	fixedValue;
 	//value	uniform 100000;
-	type	zeroGradient;
+	//type	zeroGradient;
     }
 
     "(cyc_half.*)"
