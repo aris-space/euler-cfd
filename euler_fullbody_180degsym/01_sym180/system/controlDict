@@ -80,6 +80,52 @@ functions
         fields (p U T rho);
     }
 
+    forces_airbrakes
+    {
+        type forces;
+
+        functionObjectLibs ("libforces.so");
+        patches
+        (
+            airbrakes
+        );
+
+        rho rhoInf;
+        rhoInf 0.557;
+        CofR (0 0 0);
+    }
+
+    forces_rocket
+    {
+        type forces;
+
+        functionObjectLibs ("libforces.so");
+        patches
+        (
+            rocket
+        );
+
+        rho rhoInf;
+        rhoInf 0.557;
+        CofR (0 0 0);
+    }
+
+    forces_total
+    {
+        type forces;
+
+        functionObjectLibs ("libforces.so");
+        patches
+        (
+            rocket
+            airbrakes
+        );
+
+        rho rhoInf;
+        rhoInf 0.557;
+        CofR (0 0 0);
+    }
+
 ///////////////////////////////////////////////////////////////////////////
 
 }
