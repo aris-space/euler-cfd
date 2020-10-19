@@ -18,10 +18,10 @@ convertToMeters 1; // does nothing in this case, 0.1 would shrink it by 10x
 
 vertices   // (x y z)   
 (
-    (-1  0 -4.7)
-    ( 1  0 -4.7)
-    ( 1  1 -4.7)
-    (-1  1 -4.7)
+    (-1  0 -5.5)
+    ( 1  0 -5.5)
+    ( 1  1 -5.5)
+    (-1  1 -5.5)
     (-1  0    1)
     ( 1  0    1)
     ( 1  1    1)
@@ -32,7 +32,7 @@ blocks
 (
     // (50 50 285)
     // (12 12 71)
-    hex (0 1 2 3 4 5 6 7) (24 12 71) simpleGrading (1 1 1)
+    hex (0 1 2 3 4 5 6 7) (24 12 78) simpleGrading (1 1 1)
 );
 
 edges           
