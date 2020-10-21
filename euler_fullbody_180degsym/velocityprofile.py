@@ -14,8 +14,8 @@ nSteps = 10
 # as a function of step velocity, such that airflow covers a certain distance
 # within a step. If using CFL-regulated timesteps, this ensures the same number
 # of timesteps per velocity step.
-transitionLength = 6
-stepLength = 12
+transitionLength = 7 #6
+stepLength = 20 # 12
 
 # Output table
 print(f"\tuniformValue table\n\t(\n\t\t(0 (0 0 -{minU}))")

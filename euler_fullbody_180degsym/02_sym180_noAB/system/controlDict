@@ -23,7 +23,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         1.42;
+endTime         2.13;
 
 deltaT          1e-4;
 
@@ -33,7 +33,7 @@ deltaT          1e-4;
 
 writeControl    timeStep;
 
-writeInterval   100;//4000;
+writeInterval   4000;
 
 purgeWrite      0;
 
@@ -80,38 +80,6 @@ functions
         fields (p U T rho);
     }
 
-/*
-
-    forces_airbrakes
-    {
-        type forces;
-
-        functionObjectLibs ("libforces.so");
-        patches
-        (
-            airbrakes
-        );
-
-        rho rhoInf;
-        rhoInf 0.557;
-        CofR (0 0 0);
-    }
-
-    forces_rocket
-    {
-        type forces;
-
-        functionObjectLibs ("libforces.so");
-        patches
-        (
-            rocket
-        );
-
-        rho rhoInf;
-        rhoInf 0.557;
-        CofR (0 0 0);
-    }
-
     forces_total
     {
         type forces;
@@ -120,15 +88,12 @@ functions
         patches
         (
             rocket
-            airbrakes
         );
 
         rho rhoInf;
         rhoInf 0.557;
         CofR (0 0 0);
     }
-
-*/
 
 ///////////////////////////////////////////////////////////////////////////
 
