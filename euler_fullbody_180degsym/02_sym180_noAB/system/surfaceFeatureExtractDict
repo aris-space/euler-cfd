@@ -24,6 +24,7 @@ euler_rot45.stl
 }
 
 //airbrakes.stl
+/*
 airbrakes_rot45.stl
 {
     extractionMethod    extractFromSurface; // extractFromFile or extractFromSurface
@@ -31,6 +32,7 @@ airbrakes_rot45.stl
     {includedAngle   150;}
     writeObj                yes;    // Write options
 }
+*/
 
 // freestream.stl
 // {
