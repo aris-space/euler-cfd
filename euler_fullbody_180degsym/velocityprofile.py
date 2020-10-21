@@ -8,7 +8,7 @@ minU = 0
 maxU = 372.2556 # Ma = 1.2
 
 # Number of steps to perform
-nSteps = 10
+nSteps = 40
 
 # The duration of transitions between steps and steps themselves is calculated
 # as a function of step velocity, such that airflow covers a certain distance
