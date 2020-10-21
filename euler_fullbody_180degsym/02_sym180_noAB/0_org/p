@@ -26,14 +26,18 @@ boundaryField
         type            fixedValue;
         value           $internalField;
     }
-    outlet
+    ("outlet|outerSides)"
     {
-        type            zeroGradient;
+        //type            zeroGradient;
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
     }
     "(rocket|airbrakes)"
     {
         type            slip;
     }
+/*
     outerSides
     {
         type            freestream;
@@ -43,6 +47,7 @@ boundaryField
 	//value	uniform 100000;
 	//type	zeroGradient;
     }
+*/
 
     "(cyc_half.*)"
     {
