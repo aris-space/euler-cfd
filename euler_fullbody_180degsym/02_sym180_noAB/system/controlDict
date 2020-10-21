@@ -33,7 +33,7 @@ deltaT          1e-4;
 
 writeControl    timeStep;
 
-writeInterval   4000;
+writeInterval   100;//4000;
 
 purgeWrite      0;
 
@@ -80,6 +80,8 @@ functions
         fields (p U T rho);
     }
 
+/*
+
     forces_airbrakes
     {
         type forces;
@@ -125,6 +127,8 @@ functions
         rhoInf 0.557;
         CofR (0 0 0);
     }
+
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 
