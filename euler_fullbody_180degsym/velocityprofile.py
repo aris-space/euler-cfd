@@ -8,14 +8,14 @@ minU = 0
 maxU = 372.2556 # Ma = 1.2
 
 # Number of steps to perform
-nSteps = 40
+nSteps = 20
 
 # The duration of transitions between steps and steps themselves is calculated
 # as a function of step velocity, such that airflow covers a certain distance
 # within a step. If using CFL-regulated timesteps, this ensures the same number
 # of timesteps per velocity step.
 transitionLength = 7 #6
-stepLength = 20 # 12
+stepLength = 60 #20 # 12
 
 # Output table
 print(f"\tuniformValue table\n\t(\n\t\t(0 (0 0 -{minU}))")
