@@ -22,7 +22,7 @@ solvers
         solver          diagonal;
     }
 
-    "(U.*|p.*|e.*)"
+    "(U.*|p.*|e.*|omega.*|k.*)"
     {
         solver          smoothSolver;
         smoother        GaussSeidel;
